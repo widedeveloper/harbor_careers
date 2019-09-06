@@ -1,0 +1,22 @@
+[
+    {
+        "text": "home",
+        "url": "/"
+    },
+    {
+        "text": "work",
+        "url": "/work"
+    },
+    {
+        "text": "capabilities",
+        "url": "/capabilities"
+    },
+    {
+        "text": "hIQ",
+        "url": "/hiq"
+    },
+    {
+        "text": "let's talk",
+        "url": "/lets-talk"
+    }
+]
