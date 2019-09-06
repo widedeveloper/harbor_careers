@@ -77,9 +77,8 @@ export default {
                     padding: 0 30px;
                     color: #231f20;
                 h3{
-                    font-size: 34px;
+                    font-size: 30px;
                     line-height: 2;
-                    letter-spacing: 2px;
                 }
                 p{
                     font-size: 20px;
@@ -142,7 +141,7 @@ export default {
 
     @media (max-width: 1100px) {
             .contain{
-                display:grid;            
+                display:grid !important;            
             }
         }
 
