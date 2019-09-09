@@ -56,11 +56,11 @@ export default {
         .gallerys{
             padding:20px;
             text-align:center;
-            max-width:1400px;
+            max-width:1300px;
             margin:auto;
             .company-images{
-                width:320px;
-                height: 240px;
+                width:270px;
+                height: 180px;
                 margin:5px;
                 margin-bottom: 90px;
                 display: inline-block;
@@ -79,7 +79,7 @@ export default {
                     align-items: center;
                     color: #D9D1CF;
                     line-height: 1.2;
-                    font-size: 18px;
+                    font-size: 16px;
 
                 }
             }

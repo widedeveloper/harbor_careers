@@ -56,7 +56,7 @@ export default {
         min-height: 100vh;
         background-color: #FFCC00;
         .title{
-            padding: 40px;
+            padding: 40px 40px 0;
             font-size: 72px;
             text-align: center;
             color: #231F20;
