@@ -7,9 +7,9 @@
             </div>
         </div>
         <div class="social-icons">
-            <a href="#" ><img class="social-icon" src="../assets/images/twitter.png" alt=""></a>
-            <a href="#" ><img class="social-icon" src="../assets/images/linkedin.png" alt=""></a>
-            <a href="#" ><img class="social-icon" src="../assets/images/instagram.png" alt=""></a>
+            <a href="https://twitter.com/HarborRetail" target="_blank"><img class="social-icon" src="../assets/images/twitter.png" alt=""></a>
+            <a href="https://www.linkedin.com/company/harbor-industries/" target="_blank"><img class="social-icon" src="../assets/images/linkedin.png" alt=""></a>
+            <a href="https://www.instagram.com/harborexplores/" target="_blank"><img class="social-icon" src="../assets/images/instagram.png" alt=""></a>
         </div>
     </div>
 </template>
