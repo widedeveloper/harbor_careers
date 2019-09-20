@@ -12,7 +12,7 @@
                 <p>We’re growing quickly and are always adding to our virtual bench. We invite you to send us your resume, even if you don’t see an open position
                 that’s a match. The world of experiential retail moves quickly. Tomorrow, we might need someone exactly like you.</p>
                 <p>Please visit below to see a list of open positions:</p>
-                <h2>[ OPEN POSITIONS ]</h2>
+                <a href="https://www.ziprecruiter.com/c/Harbor-Industries/Jobs" target="_blank"><h2>[ OPEN POSITIONS ]</h2></a>
             </div>
             <form :action="action" method="POST">
                     <input type="hidden" name="_token" :value="token">
@@ -27,7 +27,7 @@
                     <input type="file" name="file" title="file" required>
 
                 <div class="form-group">
-                    <button type="submit">[ SEND ]</button>
+                    <button type="button">[ SEND ]</button>
                 </div>
                 
             </form>
@@ -84,6 +84,9 @@ export default {
                     font-size: 20px;
                     line-height: 1.2;
                     padding-bottom: 24px;
+                }
+                a{
+                    text-decoration: none;
                 }
                 h2{
                     font-size: 36px;

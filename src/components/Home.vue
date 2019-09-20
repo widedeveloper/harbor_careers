@@ -11,7 +11,7 @@
             <div :class="`section section-1 img-${index + 1}`" :style="{'background-image': `url(${require('../assets/images/' + slide)})`}"></div>
         </div>
         <Companys v-if="this.companypage" :action="this.companypage"/>
-        <ContactForm v-if="this.contactpage" :action="this.contactpage"/>
+        <ContactForm v-if="this.contactpage" :action="this.contactAction"/>
         </div>
         <NextIcon v-if="fullLoadedImgs" class="next" :class="{rotate: menu}" @click.native="menu ? prev() : next()"/>
         <div id="zan" :class="{open: zenOpen}"></div>
@@ -50,6 +50,7 @@ export default {
             homeSlider:true,
             companypage:false,
             contactpage:false,
+            contactAction:'/careers',
             timestamp: null,
             menu: false,
             zoom: false,
