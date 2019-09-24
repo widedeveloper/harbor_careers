@@ -47,19 +47,14 @@ export default {
         }
     }, 
     methods:{
-        submitFunction : function (event){           
-            console.log("test");
+        submitFunction : function (event){  
         },
         selectedFile(event) {
-            console.log(event.target.files[0])
             this.file = event.target.files[0]
         },
         handleSubmit:function(){
             
             let currentObj = this;
-            console.log(this.file)
-
-
             let formdata = new FormData();
             formdata.append("your-name", this.name);
             formdata.append("your-message", this.message);
