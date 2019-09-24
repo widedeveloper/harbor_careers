@@ -27,8 +27,8 @@
                 <div class="form-group">
                     <button v-on:click="submitFunction" type="submit">[ SEND ]</button>
                 </div>
-                <div v-if="messageShow">
-                     <label class='alert-message'>{{this.messageText}}</label>
+                <div v-if="messageShow" class="alert-message">
+                     <label >{{this.messageText}}</label>
                 </div>
             </form>
         </div>
@@ -57,6 +57,7 @@ export default {
             this.file = event.target.files[0]
         },
         handleSubmit:function(){
+            let me = this;
             
             let formdata = new FormData();
             formdata.append("your-name", this.name);
@@ -72,11 +73,11 @@ export default {
             })
             .then(function(response){
                 console.log(response.data.message,response.message);
-                this.messageText = response.data.message;
-                this.messageShow = true;
+                me.messageText = response.data.message;
+                me.messageShow = true;
             })
             .catch(function (error){
-                this.messageText = error;
+                me.messageText = error;
             })
         }
     }
@@ -171,6 +172,12 @@ export default {
                 button:hover, button:focus {
                     opacity: 0.8;
                 }
+                .alert-message{
+                    text-align: center;
+                    label{
+                        color: red;
+                    }
+                }
         }
         }
         
@@ -218,9 +225,6 @@ export default {
                     .form-group{
                         text-align:center;
                         padding-bottom: 100px;
-                    }
-                    .alert-message{
-                        color: red;
                     }
 
                 }
