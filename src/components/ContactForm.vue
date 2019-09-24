@@ -58,12 +58,11 @@ export default {
         },
         handleSubmit:function(){
             
-            let currentObj = this;
             let formdata = new FormData();
             formdata.append("your-name", this.name);
             formdata.append("your-message", this.message);
             formdata.append("file-upload", this.file);
-
+            console.log(this.name);
             axios.post('http://138.68.222.153/wp-json/contact-form-7/v1/contact-forms/15656/feedback', formdata,
             {
                 headers:{
@@ -72,11 +71,12 @@ export default {
                 }
             })
             .then(function(response){
+                console.log(response);
                 this.messageText = response.data.message;
                 this.messageShow = true;
             })
             .catch(function (error){
-                currenObj.output = error;
+                this.messageText = error;
             })
         }
     }
