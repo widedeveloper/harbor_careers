@@ -14,20 +14,18 @@
                 <p>Please visit below to see a list of open positions:</p>
                 <a href="https://www.ziprecruiter.com/c/Harbor-Industries/Jobs" target="_blank"><h2>[ OPEN POSITIONS ]</h2></a>
             </div>
-            <form :action="action" method="POST">
-                    <input type="hidden" name="_token" :value="token">
-
+            <form @submit.prevent="handleSubmit">
                     <label>First Name*</label>
-                    <input type="text" name="name" title="Name" placeholder="Name" required>
+                    <input type="text" name="name" v-model="name" title="Name" placeholder="Name" required>
 
                     <label>Tell us about your experience:</label>
-                    <textarea rows="8" name="message" title="Message" placeholder="Message" required></textarea>
+                    <textarea rows="8" name="message" v-model="message" title="Message" placeholder="Message" required></textarea>
 
                     <label>Upload Resume* (doc, docx, pdf)</label>
-                    <input type="file" name="file" title="file" required>
+                    <input type="file" name="file" title="file" @change="selectedFile($event)" required/>
 
                 <div class="form-group">
-                    <button type="button">[ SEND ]</button>
+                    <button v-on:click="submitFunction" type="submit">[ SEND ]</button>
                 </div>
                 
             </form>
@@ -37,13 +35,49 @@
 
 <script>
 import { token } from '../config'
+import axios from 'axios'
+
 
 export default {
     name: 'ContactForm',
     props: ['action'],
-    data () {
+    data(){
         return {
-            token: encodeURIComponent(window.btoa(token))
+            file:null
+        }
+    }, 
+    methods:{
+        submitFunction : function (event){           
+            console.log("test");
+        },
+        selectedFile(event) {
+            console.log(event.target.files[0])
+            this.file = event.target.files[0]
+        },
+        handleSubmit:function(){
+            
+            let currentObj = this;
+            console.log(this.file)
+
+
+            let formdata = new FormData();
+            formdata.append("your-name", this.name);
+            formdata.append("your-message", this.message);
+            formdata.append("file-upload", this.file);
+
+            axios.post('http://local.wordpress.harbor/wp-json/contact-form-7/v1/contact-forms/15656/feedback', formdata,
+            {
+                headers:{
+                    'Content-Type':'multipart/form-data',
+                    'Cache-Control':'no-cache'
+                }
+            })
+            .then(function(response){
+                console.log(response);
+            })
+            .catch(function (error){
+                currenObj.output = error;
+            })
         }
     }
 }
