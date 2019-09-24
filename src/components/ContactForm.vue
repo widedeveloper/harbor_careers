@@ -27,7 +27,9 @@
                 <div class="form-group">
                     <button v-on:click="submitFunction" type="submit">[ SEND ]</button>
                 </div>
-                
+                <div v-if="messageShow">
+                     <label class='alert-message'>{{this.messageText}}</label>
+                </div>
             </form>
         </div>
     </div>
@@ -43,7 +45,9 @@ export default {
     props: ['action'],
     data(){
         return {
-            file:null
+            file:null,
+            messageShow:false,
+            messageText:"testset set set set set set se tset set set se t!."
         }
     }, 
     methods:{
@@ -68,7 +72,8 @@ export default {
                 }
             })
             .then(function(response){
-                console.log(response);
+                this.messageText = response.data.message;
+                this.messageShow = true;
             })
             .catch(function (error){
                 currenObj.output = error;
@@ -213,6 +218,9 @@ export default {
                     .form-group{
                         text-align:center;
                         padding-bottom: 100px;
+                    }
+                    .alert-message{
+                        color: red;
                     }
 
                 }
