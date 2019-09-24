@@ -71,7 +71,7 @@ export default {
                 }
             })
             .then(function(response){
-                console.log(response);
+                console.log(response.data.message,response.message);
                 this.messageText = response.data.message;
                 this.messageShow = true;
             })
