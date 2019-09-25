@@ -1,7 +1,8 @@
 <template>
     <div class="app" v-if="loaded">
 		<div class="mobile-menu">
-        <img :src="logo" alt="Logo" class="logo" v-if="currentImgKey" @click="toHome">
+        <img :src="logo" alt="Logo" class="logo" v-if="!companypage" @click="toHome">
+        <img :src="logo_black" alt="Logo" class="logo" v-if="companypage" @click="toHome">
         <MenuIcon @click.native="menu = !menu" :open="menu"/>
         <Menu :style="{visibility: menu ? 'visible' : 'hidden'}" :show="menu"/>
 		</div>
@@ -26,7 +27,7 @@ import { Back, TweenMax } from 'gsap'
 
 import { fromTo } from '../helpers'
 import sections from '../json/sections'
-import { logo } from '../config'
+import { logo, logo_black } from '../config'
 
 import Menu from './Menu'
 import MenuIcon from './MenuIcon'
@@ -46,6 +47,7 @@ export default {
         return {
             sections,
             logo,
+            logo_black,
             step: 0,
             homeSlider:true,
             companypage:false,

@@ -14,7 +14,7 @@
                 <p>Please visit below to see a list of open positions:</p>
                 <a href="https://www.ziprecruiter.com/c/Harbor-Industries/Jobs" target="_blank"><h2>[ OPEN POSITIONS ]</h2></a>
             </div>
-            <form @submit.prevent="handleSubmit">
+            <form @submit.prevent="handleSubmit" data-netlify-recaptcha data-netlify>
                     <label>First Name*</label>
                     <input type="text" name="name" v-model="name" title="Name" placeholder="Name" required>
 
@@ -23,7 +23,6 @@
 
                     <label>Upload Resume* (doc, docx, pdf)</label>
                     <input type="file" name="file" title="file" @change="selectedFile($event)" required/>
-
                 <div class="form-group">
                     <button v-on:click="submitFunction" type="submit">[ SEND ]</button>
                 </div>
@@ -47,7 +46,7 @@ export default {
         return {
             file:null,
             messageShow:false,
-            messageText:"testset set set set set set se tset set set se t!."
+            messageText:""
         }
     }, 
     methods:{
