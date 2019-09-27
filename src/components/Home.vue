@@ -227,7 +227,8 @@ export default {
     watch: {
         dypitchLoadedImgs: {           
             handler () {
-              this.runHomeSlider()
+                if( window.innerWidth >= 500 )
+                    this.runHomeSlider()
             }
         }
     },
