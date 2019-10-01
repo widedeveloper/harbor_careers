@@ -1,8 +1,8 @@
 <template>
     <div class="app" v-if="loaded" ref="scrolltopview">
 		<div class="mobile-menu">
-        <a href="/"><img :src="logo" alt="Logo" class="logo" v-if="!companypage">
-        <img :src="logo_black" alt="Logo" class="logo" v-if="companypage"></a>
+        <a href="/"><img :src="logo" alt="Logo" class="logo" v-if="!logo_flag">
+        <img :src="logo_black" alt="Logo" class="logo" v-if="logo_flag"></a>
         <MenuIcon @click.native="menu = !menu" :open="menu"/>
         <Menu :style="{visibility: menu ? 'visible' : 'hidden'}" :show="menu"/>
 		</div>
@@ -50,6 +50,7 @@ export default {
             logo_black,
             step: 0,
             homeSlider:true,
+            logo_flag:false,
             companypage:false,
             contactpage:false,
             contactAction:'/careers',
@@ -72,6 +73,11 @@ export default {
                 this.companypage = true;
                 this.contactpage = false;
                 this.homeSlider = false;
+                if(window.innerWidth>=500){
+                    this.logo_flag = true;
+                }else{
+                    this.logo_flag = false;
+                }
                 this.step = 1;            
                
             }
@@ -79,12 +85,14 @@ export default {
                 this.contactpage = true;
                 this.companypage = false;
                 this.homeSlider = false;
+                this.logo_flag = false;
                 this.step = 2;                        
             }
             else{
                 this.menu = true
                 this.step = 3;
                 this.homeSlider = false
+                this.logo_flag = false;
             }                
         },
         prev () {
@@ -93,10 +101,16 @@ export default {
                 this.contactpage = false;
                 this.homeSlider = true;
                 this.step = 0;
+                this.logo_flag = false;
             }
             else if(this.step == 2) {
                 this.contactpage = false;
                 this.companypage = true;
+                if(window.innerWidth>=500){
+                    this.logo_flag = true;
+                }else{
+                    this.logo_flag = false;
+                }
                 this.homeSlider = false;
                 this.step = 1;            
             }
@@ -106,6 +120,7 @@ export default {
                 this.companypage = false;
                 this.contactpage = true;
                 this.homeSlider = false;
+                this.logo_flag = false;
             }
             else{
                 return
