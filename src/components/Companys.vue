@@ -54,12 +54,12 @@ export default {
             padding: 40px 30px 0 30px;
         }
         .gallerys{
-            padding:20px;
+            padding:20px 0;
             text-align:center;
-            max-width:1300px;
             margin:auto;
             .company-images{
-                width:270px;
+                width:24%;
+                min-width:270px;
                 height: 180px;
                 margin:5px;
                 margin-bottom: 90px;
@@ -86,11 +86,17 @@ export default {
         }  
     }
     
-    @media (max-width: 768px) {
+    @media (max-width: 568px) {
         .companies-app {
             .title{
                 padding: 75px 40px 40px 40px;
             }
+            .gallerys{
+                .company-images{
+                    min-width:90%;
+                }
+            }
         }
+
     }
 </style>

@@ -1,8 +1,8 @@
 <template>
     <div class="app" v-if="loaded" ref="scrolltopview">
 		<div class="mobile-menu">
-        <img :src="logo" alt="Logo" class="logo" v-if="!companypage" @click="toHome">
-        <img :src="logo_black" alt="Logo" class="logo" v-if="companypage" @click="toHome">
+        <a href="/"><img :src="logo" alt="Logo" class="logo" v-if="!companypage" @click="toHome">
+        <img :src="logo_black" alt="Logo" class="logo" v-if="companypage" @click="toHome"></a>
         <MenuIcon @click.native="menu = !menu" :open="menu"/>
         <Menu :style="{visibility: menu ? 'visible' : 'hidden'}" :show="menu"/>
 		</div>
