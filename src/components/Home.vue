@@ -1,8 +1,8 @@
 <template>
     <div class="app" v-if="loaded" ref="scrolltopview">
 		<div class="mobile-menu">
-        <a href="/"><img :src="logo" alt="Logo" class="logo" v-if="!companypage" @click="toHome">
-        <img :src="logo_black" alt="Logo" class="logo" v-if="companypage" @click="toHome"></a>
+        <a href="/"><img :src="logo" alt="Logo" class="logo" v-if="!companypage">
+        <img :src="logo_black" alt="Logo" class="logo" v-if="companypage"></a>
         <MenuIcon @click.native="menu = !menu" :open="menu"/>
         <Menu :style="{visibility: menu ? 'visible' : 'hidden'}" :show="menu"/>
 		</div>
@@ -247,8 +247,8 @@ export default {
         .logo {
             position: fixed;
             z-index: 100;
-            width: 100px;
-            left: 50px;
+            width: 150px;
+            left: 60px;
             top: 50px;
             cursor: pointer;
         }

@@ -60,7 +60,8 @@ export default {
             .company-images{
                 width:24%;
                 min-width:270px;
-                height: 180px;
+                height:calc((100vh - 400px) / 2);
+                min-height: 230px;
                 margin:5px;
                 margin-bottom: 90px;
                 display: inline-block;
