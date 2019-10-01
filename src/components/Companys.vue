@@ -1,5 +1,5 @@
 <template>
-    <div class = "companies-app">
+    <div class = "companies-app" ref="companiesView">
         <div class="title">Most companies call these benefits. <br> Harbor calls these mandatories.</div>
         <div class = "gallerys">
             <div class="company-images" :style="{'background-image': `url(${require('../assets/images/company/benefits-stack.jpg')})`}">

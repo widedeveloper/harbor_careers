@@ -1,5 +1,5 @@
 <template>
-    <div class="app" v-if="loaded">
+    <div class="app" v-if="loaded" ref="scrolltopview">
 		<div class="mobile-menu">
         <img :src="logo" alt="Logo" class="logo" v-if="!companypage" @click="toHome">
         <img :src="logo_black" alt="Logo" class="logo" v-if="companypage" @click="toHome">
@@ -11,8 +11,8 @@
         <div v-if="homeSlider" v-for="(slide, index) in slideImgs" :key="index">
             <div :class="`section section-1 img-${index + 1}`" :style="{'background-image': `url(${require('../assets/images/' + slide)})`}"></div>
         </div>
-        <Companys v-if="this.companypage" :action="this.companypage"/>
-        <ContactForm v-if="this.contactpage" :action="this.contactAction"/>
+        <Companys v-if="this.companypage" :action="this.companypage" ref="companypageView"/>
+        <ContactForm v-if="this.contactpage" :action="this.contactAction" ref="contactActionView"/>
         </div>
         <NextIcon v-if="fullLoadedImgs" class="next" :class="{rotate: menu}" @click.native="menu ? prev() : next()"/>
         <div id="zan" :class="{open: zenOpen}"></div>
@@ -66,18 +66,20 @@ export default {
     },
 
     methods: {
-        next () {
+        next () {           
+            this.$refs.scrolltopview.scrollTop = 0;
             if(this.step == 0){
                 this.companypage = true;
                 this.contactpage = false;
                 this.homeSlider = false;
-                this.step = 1;
+                this.step = 1;            
+               
             }
-            else if(this.step == 1) {
+            else if(this.step == 1) {  
                 this.contactpage = true;
                 this.companypage = false;
                 this.homeSlider = false;
-                this.step = 2;            
+                this.step = 2;                        
             }
             else{
                 this.menu = true
@@ -154,6 +156,7 @@ export default {
         scroll (e) {
             const next = e.deltaY > 0
             if (!this.timestamp || moment().diff(this.timestamp, 'ms') > 700) {
+
                 if (next) this.next()
                 else this.prev()
                 this.timestamp = moment()

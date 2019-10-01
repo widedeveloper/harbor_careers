@@ -1,5 +1,5 @@
 <template>
-    <div class = "contact-app">
+    <div class = "contact-app" ref="contactView">
         <div class="title">
             <h2>Interested?</h2>
             Join us.
@@ -48,7 +48,7 @@ export default {
             messageShow:false,
             messageText:""
         }
-    }, 
+    },
     methods:{
         submitFunction : function (event){  
         },
@@ -62,8 +62,8 @@ export default {
             formdata.append("your-name", this.name);
             formdata.append("your-message", this.message);
             formdata.append("file-upload", this.file);
-            console.log(this.name);
-            axios.post('http://138.68.222.153/wp-json/contact-form-7/v1/contact-forms/15656/feedback', formdata,
+            var currentUrl = window.location.pathname;
+            axios.post(currentUrl+'/../wp-json/contact-form-7/v1/contact-forms/15656/feedback', formdata,
             {
                 headers:{
                     'Content-Type':'multipart/form-data',
