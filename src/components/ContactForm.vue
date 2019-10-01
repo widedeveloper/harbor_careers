@@ -63,7 +63,7 @@ export default {
             formdata.append("your-message", this.message);
             formdata.append("file-upload", this.file);
             var currentUrl = window.location.pathname;
-            axios.post(currentUrl+'/../wp-json/contact-form-7/v1/contact-forms/15656/feedback', formdata,
+            axios.post(currentUrl+'../wp-json/contact-form-7/v1/contact-forms/15656/feedback', formdata,
             {
                 headers:{
                     'Content-Type':'multipart/form-data',
